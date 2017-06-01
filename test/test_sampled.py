@@ -54,7 +54,7 @@ def test_linear_model():
     with linear_model(X=X, y=y):
         sampled_coefs = pm.sample(draws=1000, tune=500)
     mean_coefs = sampled_coefs.get_values('coefs').mean(axis=0)
-    np.testing.assert_allclose(mean_coefs, w, atol=0.01)
+    np.testing.assert_allclose(mean_coefs, w, atol=0.1)
 
 
 def test_partial_model():
@@ -75,4 +75,4 @@ def test_partial_model():
         sampled_coefs = pm.sample(draws=1000, tune=500)
 
     mean_coefs = sampled_coefs.get_values('coefs').mean(axis=0)
-    np.testing.assert_allclose(mean_coefs, w, atol=0.01)
+    np.testing.assert_allclose(mean_coefs, w, atol=0.1)

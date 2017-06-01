@@ -1,8 +1,11 @@
 sudo: false
 language: python
 python:
+  - "3.5"
   - "3.6"
-install: pip install tox-travis coveralls
-script: tox
+install: pip install pytest flake8 coveralls
+script:
+  - py.test -v test/
+  - flake8
 after_success:
   - coveralls

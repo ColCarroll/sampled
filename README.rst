@@ -72,6 +72,9 @@ Observations may be passed into any node, and we can observe how that changes po
     hard_class_good_grade.get_values('recommendation').mean()  # 0.705
 
 
+**References**
+
+*  Koller, Daphne, and Nir Friedman. *Probabilistic graphical models: principles and techniques.* MIT press, 2009.
 
 .. |Build Status| image:: https://travis-ci.org/ColCarroll/sampled.svg?branch=master
    :target: https://travis-ci.org/ColCarroll/sampled

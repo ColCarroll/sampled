@@ -10,7 +10,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as buff:
 
 setup(
     name='sampled',
-    version='0.0.1',
+    version='0.1.0',
     description='Decorator for reusable models in PyMC3',
     long_description=long_description,
     author='Colin Carroll',

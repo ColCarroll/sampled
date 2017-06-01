@@ -1,0 +1,7 @@
+__pycache__/
+.tox/
+.coverage
+.python-version
+.cache
+htmlcov/
+*.egg-info/

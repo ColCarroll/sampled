@@ -4,7 +4,8 @@ python:
   - "3.5"
   - "3.6"
 install:
-  - pip install -e .
+  - pip install git+https://github.com/pymc-devs/pymc3
+  - pip install .
   - pip install pytest flake8 coveralls
 script:
   - py.test -v test/

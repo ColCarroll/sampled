@@ -7,10 +7,10 @@ class ObserverModel(pm.Model):
         self.observed = observed
         super(ObserverModel, self).__init__()
 
-    def Var(self, name, dist, data=None, **kwargs):
+    def Var(self, name, dist, data=None, total_size=None):
         return super(ObserverModel, self).Var(name, dist,
                                               data=self.observed.get(name, data),
-                                              **kwargs)
+                                              total_size=total_size)
 
 
 def sampled(f):

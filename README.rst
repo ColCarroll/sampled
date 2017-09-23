@@ -39,6 +39,10 @@ Now here is how to use the model:
 You can also use this to build graphical networks -- here is a continuous version of the `STUDENT` example from Koller and Friedman's "Probabilistic Graphical Models", chapter 3:
 
 ::
+    import numpy as np
+    import theano.tensor as tt
+    import pymc3 as pm
+    from sampled import sampled
 
     @sampled
     def student():

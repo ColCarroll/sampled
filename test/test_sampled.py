@@ -3,6 +3,7 @@ import pymc3 as pm
 import theano.tensor as tt
 
 from sampled import sampled
+SEED = 1
 
 
 def test_sampled_one_model():
@@ -10,12 +11,23 @@ def test_sampled_one_model():
     def just_a_normal():
         pm.Normal('x', mu=0, sd=1)
 
-    draws = 50
+    kwargs = {
+        'draws': 50,
+        'tune': 50,
+        'init': None
+    }
+
+    np.random.seed(SEED)
     with just_a_normal():
-        decorated_trace = pm.sample(draws=draws, tune=50, init=None)
+        decorated_trace = pm.sample(**kwargs)
+
+    np.random.seed(SEED)
+    with pm.Model():
+        pm.Normal('x', mu=0, sd=1)
+        normal_trace = pm.sample(**kwargs)
 
     assert decorated_trace.varnames == ['x']
-    assert len(decorated_trace.get_values('x')) == draws
+    np.testing.assert_array_equal(decorated_trace.get_values('x'), normal_trace.get_values('x'))
 
 
 def test_reuse_model():

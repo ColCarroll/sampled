@@ -39,7 +39,7 @@ def test_reuse_model():
 
 
 def test_linear_model():
-    rows, cols = 1000, 10
+    rows, cols = 100, 10
     X = np.random.normal(size=(rows, cols))
     w = np.random.normal(size=cols)
     y = X.dot(w) + np.random.normal(scale=0.1, size=rows)

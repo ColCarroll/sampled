@@ -16,13 +16,14 @@ Here is an example of creating a model:
     import numpy as np
     import pymc3 as pm
     from sampled import sampled
+    import theano.tensor as tt
 
     @sampled
     def linear_model(X, y):
         shape = X.shape
-        X = pm.Normal('X', mu=np.mean(X, axis=0), sd=np.std(X, axis=0), shape=shape)
-        coefs = pm.Normal('coefs', mu=np.zeros(shape[1]), sd=np.ones(shape[1]), shape=shape[1])
-        pm.Normal('y', mu=np.dot(X, coefs), sd=np.ones(shape[0]), shape=shape[0])
+        X = pm.Normal('X', mu=tt.mean(X, axis=0), sd=np.std(X, axis=0), shape=shape)
+        coefs = pm.Normal('coefs', mu=tt.zeros(shape[1]), sd=tt.ones(shape[1]), shape=shape[1])
+        pm.Normal('y', mu=tt.dot(X, coefs), sd=tt.ones(shape[0]), shape=shape[0])
 
 Now here is how to use the model:
 ::
@@ -39,10 +40,9 @@ Now here is how to use the model:
 You can also use this to build graphical networks -- here is a continuous version of the `STUDENT` example from Koller and Friedman's "Probabilistic Graphical Models", chapter 3:
 
 ::
-    import numpy as np
-    import theano.tensor as tt
     import pymc3 as pm
     from sampled import sampled
+    import theano.tensor as tt
 
     @sampled
     def student():

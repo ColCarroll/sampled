@@ -40,6 +40,7 @@ Now here is how to use the model:
 You can also use this to build graphical networks -- here is a continuous version of the `STUDENT` example from Koller and Friedman's "Probabilistic Graphical Models", chapter 3:
 
 ::
+
     import pymc3 as pm
     from sampled import sampled
     import theano.tensor as tt

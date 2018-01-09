@@ -10,7 +10,6 @@ sampled
 Provides syntactic sugar for reusable models with PyMC3.  This lets you separate creating a generative model from using the model.
 
 Here is an example of creating a model:
-
 ::
 
     import numpy as np
@@ -38,7 +37,6 @@ Now here is how to use the model:
     np.allclose(sampled_coefs.get_values('coefs').mean(axis=0), w, atol=0.1) # True
 
 You can also use this to build graphical networks -- here is a continuous version of the `STUDENT` example from Koller and Friedman's "Probabilistic Graphical Models", chapter 3:
-
 ::
 
     import pymc3 as pm
